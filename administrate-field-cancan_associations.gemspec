@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = "A field type for Administrate that integrates with CanCan associations"
   spec.homepage      = "https://github.com/jubilee2/administrate-field-cancan_associations"
   spec.license       = "MIT"
-  spec.required_ruby_version = ">= 3.0.0"
+  spec.required_ruby_version = ">= 2.7"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
