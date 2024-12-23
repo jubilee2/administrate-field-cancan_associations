@@ -19,7 +19,15 @@ To use this gem, create a new field in your Administrate dashboard:
 ```Ruby
 class MyResourceDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
-    my_association: Field::CancanAssociations
+    study: Field::CancanBelongsTo.with_options(
+      scope: ->(field, current_user, current_ability) { Study.accessible_by(current_ability, :read) }
+    ),
+    projects: Field::CancanHasMany.with_options(
+      scope: ->(field, current_user, current_ability) { Project.accessible_by(current_ability, :read) }
+    ),
+    team: Field::CancanHasOne.with_options(
+      scope: ->(field, current_user, current_ability) { Team.accessible_by(current_ability, :read) }
+    )
   }.freeze
 end
 ```
